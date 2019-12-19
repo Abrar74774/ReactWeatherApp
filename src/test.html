@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="sound" style="background: blueviolet;height:50px;"></div>
+    <script>
+        let sound = document.getElementById("sound");
+        let audio = new Audio("beyond-doubt.mp3");
+        sound.addEventListener("click",() => {
+            audio.play();
+            console.log("clicked");
+        });
+    </script>
+</body>
+</html>
