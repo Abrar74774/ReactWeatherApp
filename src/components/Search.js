@@ -107,7 +107,12 @@ export default class Search extends React.Component {
                     </div><br/>
                 </div>
               
-              <Link to='/weather' style={findBtn} onClick={() => this.props.coords({x:this.state.values.x,y:this.state.values.y})}>Find</Link>  
+                <Link to='/weather' 
+                style={findBtn} 
+                onClick={() => this.props.dataFromSearch({coords:{x:this.state.values.x,y:this.state.values.y},city:this.state.values.city})}
+                >
+                Find
+                </Link>  
             </div>
         )
     }

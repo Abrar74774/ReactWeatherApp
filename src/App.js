@@ -20,13 +20,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       fetchedData: null,
+      city:''
     };
   }
 
   setStateFunc = (object) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/daa05a8769cd76b841d05acdc43f09cf/${object.y},${object.x}?units=ca`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/daa05a8769cd76b841d05acdc43f09cf/${object.coords.y},${object.coords.x}?units=ca`)
      .then(res => res.json())
-     .then(data => this.setState({fetchedData:data}));
+     .then(data => this.setState({fetchedData:data,city:object.city}));
     setTimeout(() => {
       console.log(this.state);
     }, 2000);
@@ -40,10 +41,10 @@ class App extends React.Component {
         <div style={container}>
           <Header />
           <Route exact path='/' render={props =>
-            <Search {...props} coords={this.setStateFunc}/>
+            <Search {...props} dataFromSearch={this.setStateFunc}/>
           }/>
           <Route path="/weather" render={props =>(
-            <WeatherContainer {...props} weatherData={this.state.fetchedData}/>
+            <WeatherContainer {...props} weatherData={this.state.fetchedData} cityName={this.state.city}/>
           )} />
           
         </div>

@@ -5,21 +5,23 @@ import WeeklyForecast from './WeeklyForecast'
 
 export default class WeatherContainer extends Component {
     state = {
-        data:null
+        data:null,
+        cityName:''
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.weatherData !== this.props.weatherData) {
-            this.setState({data:this.props.weatherData})
+        if (prevProps.weatherData !== this.props.weatherData ) {
+            this.setState({data:this.props.weatherData,city:this.props.cityName})
         }
     }
     
     render() {
         if (this.state.data !== null) {
+            console.log(this.state.city);
             const { data } = this.state.data.daily;
             return (
                 <div>
-                    <h2 style={{margin:'20px auto 0',textAlign:'center'}}>Al Wakrah</h2>
+                    <h2 style={{margin:'20px auto 0',textAlign:'center',textTransform:'capitalize'}}>{this.props.cityName}</h2>
                     
                     <Temp                    
                         currentTemp={Math.floor(this.state.data.currently.temperature)} 
