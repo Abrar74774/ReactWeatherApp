@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App].
 ## The app is currently in development. Stay tuned for the final product!
-The below mentioned points are from create-react-app
+The below mentioned points are from create-react-app. Make sure you enter 'npm install' to install node_modules before entering 
+'npm start'.
 
 ## Available Scripts
 
