@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App].
+## The app is currently in development. Stay tuned for the final product! 
 
 ## Available Scripts
 
