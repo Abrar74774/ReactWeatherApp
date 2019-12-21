@@ -4,16 +4,6 @@ import Search from './components/Search';
 import { BrowserRouter, Route } from 'react-router-dom';
 import WeatherContainer from './components/weather/WeatherContainer';
 
-
-const container = {
-  height:'700px',
-  width:'450px',
-  background:'#2fafff',
-  margin:'40px auto',
-  padding:'20px',
-  borderRadius:'25px'
-}
-
 class App extends React.Component {
 
   constructor(props) {
@@ -38,7 +28,7 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <BrowserRouter>
-        <div style={container}>
+        <div className="container">
           <Header />
           <Route exact path='/' render={props =>
             <Search {...props} dataFromSearch={this.setStateFunc}/>

@@ -1,13 +1,5 @@
 import React from 'react';
 
-const headerStyle={
-    background:'#2fafff',
-    height:'80px',
-    width:'100%',
-    padding:'20px',
-    borderRadius:'12px',
-    marginTop:'10px'
-}
 
 const header = {
     textAlign:'center',
@@ -18,7 +10,7 @@ const header = {
 
 export default function Header() {
     return (
-        <div style={headerStyle}>
+        <div className="header-style">
             <h1 style={header}>Weather App</h1>
         </div>        
     )

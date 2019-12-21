@@ -6,7 +6,7 @@ export default class Details extends Component {
             <div className='details'>
                 <div>
                     <i className='fa fa-wind'></i><br/>
-                    {this.props.wind + ' km/h'}
+                    {Math.floor(this.props.wind) + ' km/h'}
                 </div>
                 <div>
                     <i className='fa fa-tint'></i><br/>

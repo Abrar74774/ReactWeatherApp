@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans:300&display=swap');
+
 * {box-sizing: border-box;}
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size:18px;
@@ -16,23 +16,84 @@ code {
     monospace;
 }
 
+.container {
+  height:800px;
+  width:475px;
+  background: linear-gradient(342deg, rgba(0,80,221,1) 18%, rgba(109,206,255,1) 99%);  margin:40px auto;
+  padding:20px;
+  border-radius:5px;
+}
+/*--------Header.js styles----------*/
+.header-style {
+  background:rgba(0,0,0,0);
+  height:80px ;
+  width:100% ;
+  padding:20px ;
+  border-radius: 12px;
+  margin-top:10px;
+}
+
+.header {
+  text-align: center;
+  margin: 0;
+  color: white;
+  font-size: 46px;
+  font-family: 'Noto Sans',sans-serif !important;
+}
+/* --------Temp.js styles----------*/
+.tempStyle {
+  color:white;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin:0 auto;
+}
+
+.tempStyle .temp {
+  font-size: 110px;
+  text-align: center;
+  flex:3;
+  margin-bottom: 7px;
+}
+
+.tempStyle .others {
+  font-size: 22px;
+  text-align: center;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
 .details {
   display:flex;
-  background: #ffffff33;
+  background: #ffffff25;
   border-radius: 10px;
-  height:100px;
-  justify-content: space-around;
-  margin:45px auto;
-  padding:17px 0;
+  height:150px;  
+  margin:0 auto 40px;
+  padding:0px 0;
 } 
+
+
+
 .details div {
   text-align: center;
+  flex: 1;
+  padding: 30px 0; 
 }
+
 .details div i {
   font-size: 30px;
+  margin:10px;
 }
+
 input[type=number] {
   width:80px;
   height:30px;
   
+}
+
+@media screen and (max-width:475px) {
+  .container {
+    width:100%;
+    height:100%;
+  }
 }

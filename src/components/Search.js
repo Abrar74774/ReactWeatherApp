@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import LinkAfterValidation from './LinkAfterValidation'
 
 const searchStyle = {
     padding:'50px',
@@ -9,18 +9,7 @@ const searchStyle = {
     
 }
 
-const findBtn = {
-    textDecoration:'none',
-    background:'#6fd5ff',
-    display:'block',
-    height:'50px',
-    width:'200px',
-    padding:'7px',
-    textAlign: 'center',
-    margin:'80px auto',
-    color:'white',
-    borderRadius:'25px'
-}
+
 
 export default class Search extends React.Component {
     state = {
@@ -107,12 +96,7 @@ export default class Search extends React.Component {
                     </div><br/>
                 </div>
               
-                <Link to='/weather' 
-                style={findBtn} 
-                onClick={() => this.props.dataFromSearch({coords:{x:this.state.values.x,y:this.state.values.y},city:this.state.values.city})}
-                >
-                Find
-                </Link>  
+                <LinkAfterValidation inputfield={this.state.values} search={this.state.values} dataFromSearch={this.props.dataFromSearch}/> 
             </div>
         )
     }
