@@ -31,7 +31,7 @@ export default class WeatherContainer extends Component {
                     />        
                     <Details
                         wind= {this.state.data.currently.windSpeed} 
-                        humidity={this.state.data.currently.humidity * 100 + '%'}
+                        humidity={Math.floor(this.state.data.currently.humidity * 100) + '%'}
                         uvindex={this.state.data.currently.uvIndex}
                     />
                     <WeeklyForecast 

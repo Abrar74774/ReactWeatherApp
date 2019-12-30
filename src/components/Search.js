@@ -1,15 +1,6 @@
 import React from 'react';
 import LinkAfterValidation from './LinkAfterValidation'
 
-const searchStyle = {
-    padding:'50px',
-    margin:'50px auto',
-    color:'white',
-    fontSize:'25px',
-    
-}
-
-
 
 export default class Search extends React.Component {
     state = {
@@ -38,7 +29,8 @@ export default class Search extends React.Component {
     }
 
     handleClick = () => {
-        const searchValue = this.state.suggs[0].text;
+        if (this.state.suggs[0]) {
+            const searchValue = this.state.suggs[0].text;
         const key = this.state.suggs[0].magicKey;
         fetch(`http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&SingleLine=${searchValue}&magicKey=${key}`)
             .then(res => res.json())
@@ -49,6 +41,8 @@ export default class Search extends React.Component {
                     y:data.candidates[0].location.y
                 }
             })));
+        }
+        
     }
     
     handleChangeX = (e) => {
@@ -76,23 +70,21 @@ export default class Search extends React.Component {
         console.log(this.state);        
         
         return(
-            <div style={searchStyle}>
+            <div className="searchStyle">
                 Enter city name&nbsp;:<br/>
                 <input type='text' list="search" id="input" onChange={this.handleChange}/>
 
-                <datalist id="search">
-                                       
-                </datalist>
+                <datalist id="search"></datalist>
 
-                <button onClick={this.handleClick}>Set Coords</button>
+                <button className="searchButton" onClick={this.handleClick}>Set Coords</button>
 
-                <div style={{width:'90%',margin:'10px auto',display:'flex'}}>
+                <div style={{width:'280px',margin:'50px auto',display:'flex',flexDirection:'column',padding:'10px;',textAlign:'justify'}}>
                     <div>
-                        <span>Enter longitude&nbsp;:&nbsp;&nbsp;&nbsp; </span><input type="number" value={this.state.values.x} onChange={this.handleChangeX}/>
+                        Enter&nbsp;longitude&nbsp;:<input type="number" value={this.state.values.x} onChange={this.handleChangeX}/>
                     </div>
 
                     <div>
-                        <span>Enter latitude&nbsp;: </span><input type="number" value={this.state.values.y} onChange={this.handleChangeY} />
+                        Enter&nbsp;latitude&nbsp;:<input type="number" value={this.state.values.y} onChange={this.handleChangeY} />
                     </div><br/>
                 </div>
               
