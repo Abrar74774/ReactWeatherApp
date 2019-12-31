@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import Search from './components/Search';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import WeatherContainer from './components/weather/WeatherContainer';
 
 class App extends React.Component {
@@ -27,18 +27,18 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <BrowserRouter>
+      <HashRouter basename='/'>
         <div className="container">
           <Header />
-          <Route exact path='/' render={props =>
+          <Route exact path="/" render={props =>
             <Search {...props} dataFromSearch={this.setStateFunc}/>
           }/>
-          <Route path="/weather" render={props =>(
+          <Route path='/weather' render={props =>(
             <WeatherContainer {...props} weatherData={this.state.fetchedData} cityName={this.state.city}/>
           )} />
           
         </div>
-      </BrowserRouter>     
+      </HashRouter>     
     );
   }
 }

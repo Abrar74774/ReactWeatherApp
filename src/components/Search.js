@@ -15,7 +15,7 @@ export default class Search extends React.Component {
     //Search Recommendation
     handleChange = (e) => {
         const inputValue = e.target.value;    
-        fetch(`http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest?text=${inputValue}&f=json&category=City`)
+        fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest?text=${inputValue}&f=json&category=City`)
             .then(res => res.json())
             .then(data => { 
                 this.setState(prevState => ({
@@ -32,7 +32,7 @@ export default class Search extends React.Component {
         if (this.state.suggs[0]) {
             const searchValue = this.state.suggs[0].text;
         const key = this.state.suggs[0].magicKey;
-        fetch(`http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&SingleLine=${searchValue}&magicKey=${key}`)
+        fetch(`https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&SingleLine=${searchValue}&magicKey=${key}`)
             .then(res => res.json())
             .then(data => this.setState(prevstate => ({
                 values: {
